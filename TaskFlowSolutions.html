@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <!-- CSS styles for the task manager -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+            background-color: lightyellow
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: black;
+            color: white;
+        }
+
+        #taskForm {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            background-color: white
+        }
+
+        #taskmanager {
+            display: flex;
+            flex-direction: column;
+            width: 100%; 
+            max-width: none; 
+            margin: 0;
+            padding: 0;
+            
+            
+        }
+          
+        #taskmanager > div {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .taskName {
+            flex-grow: 1;
+            flex-shrink: 1;
+            overflow: hidden;
+            min-width: 100px;
+            max-width: 500px;
+            
+        }
+
+        .task-container {
+            flex-shrink: 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        .high-priority {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .medium-priority {
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .low-priority {
+            font-weight: 200;
+            font-size: 0.7rem;
+        }
+
+        .taskDate {
+            flex-shrink: 0;
+            min-width: 80px;
+            white-space: nowrap;
+        }
+
+        .task-actions {
+            display: flex;
+            flex-shrink: 0;
+            gap: 4px;
+            white-space: nowrap;
+            align-items: center;
+        }
+        .task-actions label {
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .task-actions button {
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            background-color: darkgrey;
+            color: black;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Link to the JavaScript file -->
+    <script src="TaskFlow.js" defer></script>
+</head>
+<body>
+
+    <h1>Task Manager</h1>
+    <!-- Form for adding tasks -->
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="task Name" required/>
+        <select name="taskPriority" id="taskPriority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <label><input type="checkbox" id="isImportant"/>Important</label>
+        <button type="submit" id="addTaskBtn">Add Task</button>
+        <ul id="taskList"></ul>
+    </form>
+
+    <!-- Container for displaying tasks -->
+    <div id="taskmanager"></div>
+    
+</body>
+</html>
